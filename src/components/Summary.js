@@ -2,7 +2,7 @@
 const myComponentStyle ={
     minHeight:"300px", 
     border:"1px solid #C9C9C9", 
-    borderRadius:"10px"
+    borderRadius:"10px",
 }
 
 const iconStyle = {
@@ -12,7 +12,7 @@ const iconStyle = {
 
 function Summary() {
     return (
-        <div style={myComponentStyle} >
+        <div style={myComponentStyle} className="position-fixed">
             <h3 className=" text-center p-3">Order Summary</h3>
             <div className="border-bottom"></div>
             <div className="d-flex flex-column align-items-center justify-content-center">
