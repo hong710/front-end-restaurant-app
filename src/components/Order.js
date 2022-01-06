@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react';
 import Header from './Header';
 import Summary from './Summary';
-import Name from './Name';
+import Name from './EditItem';
 
 function Order() {
 

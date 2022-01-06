@@ -1,6 +1,7 @@
 	import React from 'react';
 	import {BrowserRouter, Route, Switch} from 'react-router-dom';
-	import Customer from './components/Customer';
+	import Menu from './components/Menu';
+	import EditMenu from './components/EditMenu';
 	import Order from './components/Order';
 	
 
@@ -11,11 +12,15 @@
 				<div className="App">					
 					
 						<Route exact path="/"> 
-							<Customer/>
+							<Menu/>
 						</Route>
 						
 						<Route exact path="/order"> 
 							<Order/>
+						</Route>
+
+						<Route exact path="/edit"> 
+							<EditMenu/>
 						</Route>
 									
 				</div>
