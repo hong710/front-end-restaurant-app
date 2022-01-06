@@ -15,9 +15,9 @@
 							<Menu/>
 						</Route>
 						
-						<Route exact path="/order"> 
+						{/* <Route exact path="/order"> 
 							<Order/>
-						</Route>
+						</Route> */}
 
 						<Route exact path="/edit"> 
 							<EditMenu/>

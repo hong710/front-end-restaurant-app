@@ -29,7 +29,7 @@ function Menu() {
 					</div>					
 				</div>
 
-				<h3 className="mb-5"> <u>Fry Dishes</u></h3>
+				<h3 className="mb-5"> <u>Noodles & Fried Rice</u></h3>
 				<div className="row">
 					<div className="col-12">
 						<div className="row">

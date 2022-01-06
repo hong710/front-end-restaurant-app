@@ -36,13 +36,13 @@ function EditMenu() {
 					</div>					
 				</div>
 
-				<h3 className="mb-5"> <u>Fry Dishes</u></h3>
+				<h3 className="mb-5"> <u>Noodles & Fried Rice</u></h3>
 				<div className="row">
 					<div className="col-12">
 						<div className="row">
 							{menu.filter( item => item.category==="Fry")
 							.map((item) => (
-								<EditItem key={item.id} name={item.name} price = {item.price} img = {item.image}/>
+								<EditItem key={item.id} id={item.id} name={item.name} price = {item.price} img = {item.image}/>
 							))}
 						</div>
 					</div>					
@@ -54,7 +54,7 @@ function EditMenu() {
 						<div className="row">
 							{menu.filter( item => item.category==="Curry")
 							.map((item) => (
-								<EditItem key={item.id} name={item.name} price = {item.price} img = {item.image}/>
+								<EditItem key={item.id} id={item.id} name={item.name} price = {item.price} img = {item.image}/>
 							))}
 						</div>
 					</div>					
@@ -66,7 +66,7 @@ function EditMenu() {
 						<div className="row">
 							{menu.filter( item => item.category==="Entree")
 							.map((item) => (
-								<EditItem key={item.id} name={item.name} price = {item.price} img = {item.image}/>
+								<EditItem key={item.id} id={item.id} name={item.name} price = {item.price} img = {item.image}/>
 							))}
 						</div>
 					</div>					
