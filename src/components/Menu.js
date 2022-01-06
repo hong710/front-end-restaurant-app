@@ -1,7 +1,6 @@
 import React,{useState, useEffect} from 'react';
 import Item from './Item';
 import Header from './Header';
-import Summary from './Summary';
 
 function Menu() {
 
@@ -35,6 +34,18 @@ function Menu() {
 					<div className="col-12">
 						<div className="row">
 							{menu.filter( item => item.category==="Fry")
+							.map((item) => (
+								<Item key={item.id} name={item.name} price = {item.price} img = {item.image}/>
+							))}
+						</div>
+					</div>					
+				</div>
+
+				<h3 className="mb-5"> <u>Curries</u></h3>
+				<div className="row">
+					<div className="col-12">
+						<div className="row">
+							{menu.filter( item => item.category==="Curry")
 							.map((item) => (
 								<Item key={item.id} name={item.name} price = {item.price} img = {item.image}/>
 							))}
