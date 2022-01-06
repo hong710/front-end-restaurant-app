@@ -1,9 +1,12 @@
 import React from 'react'
 
-function Name() {
-    return (
+
+
+function Name({name}) {
+
+        return (
         <div className="bg-primary text-light">
-            <p className="p-2 text-center" >Anthony Hong</p>
+            <p className="p-2 text-center" >{name}</p>
         </div>
         
     )

@@ -1,9 +1,19 @@
-import React from 'react';
+import React,{useState, useEffect} from 'react';
 import Item from './Item';
 import Header from './Header';
 import Summary from './Summary';
 
 function Order() {
+
+	const [foodItems, setFoodItems]= useState([]);
+
+	useEffect(()=>{
+		fetch("http://localhost:9292/")
+			.then((r)=>r.json())
+			.then((menu) => setFoodItems(menu))
+	},[]);
+
+
     return (
         <div className="container">
 				<Header className name="Welcome To Thai Ladle"/>
@@ -11,19 +21,9 @@ function Order() {
 				<div className="row">
 					<div className="col-7">
 						<div className="row">
-							<Item />
-							<Item />
-							<Item />
-							<Item />
-							<Item />
-							<Item />
-							<Item />
-							<Item />
-							<Item />
-							<Item />
-							<Item />
-							<Item />
-																								
+							{foodItems.map((item) => (
+								<Item key={item.id} name={item.name} price = {item.price} img = {item.image}/>
+							))}
 						</div>
 					</div>
 					<div className="col-5">
