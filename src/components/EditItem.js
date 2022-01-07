@@ -30,7 +30,7 @@ function EditItem({id, name, price,img,category, active}) {
         setUpdateCat(e.target.value);
     }
 
-    function handleOnCheckStatus(e){
+    function handleOnActive(e){
         if (e.target.checked) {
             setUpdateActive(false);
         }else
@@ -62,7 +62,13 @@ function EditItem({id, name, price,img,category, active}) {
 
     function handleDelete(e){
         e.preventDefault();
-        fetch(`http://localhost:9292/delete/${id}`, {
+        fetch(`http://localhost:9292/delete_order/${id}`, {
+        method: "DELETE",
+        })
+        .then((r) => r.json())
+        .then((deletedItem) => (deletedItem));
+
+        fetch(`http://localhost:9292/delete_food/${id}`, {
         method: "DELETE",
         })
         .then((r) => r.json())
@@ -83,22 +89,27 @@ function EditItem({id, name, price,img,category, active}) {
                             <h6 className="card-text m-2"><input className="" placeholder={"$ "+price} onChange={handleOnChangePrice} /></h6>
                             <h6 className="card-text m-2"><input className="" placeholder={img} onChange={handleOnChangeImg} /></h6>
                             <div className="form-check mx-2">
-                                <input className="form-check-input" type="checkbox"  value={updateActive} id="flexCheckChecked" onChange={handleOnCheckStatus} />
-                                <label className="form-check-label" htmlFor="flexCheckChecked" >
-                                    Deactivate
+                                {
+                                updateActive ? <input className="form-check-input" type="checkbox" id="flexCheckChecked"  onChange={handleOnActive} />
+                                : <input className="form-check-input" type="checkbox" checked id="flexCheckChecked"  onChange={handleOnActive} />
+                                }
+                                
+                                <label className={updateActive ? "form-check-label bg-success text-light px-1" 
+                                    : "form-check-label bg-warning px-1 "} htmlFor="flexCheckChecked" >
+                                {updateActive? "Show" : "Hide"}
                                 </label>
                             </div>
                             <div className="m-2">
                                 <select className="" id="inputGroupSelect01" onChange={handleOnChangeCat}>
                                     <option value={category}>Choose.....</option>
                                     <option value="App">Appetizer</option>
-                                    <option value="Fry">Fry Dishes</option>
+                                    <option value="Fry">Noodles & Fried Rice</option>
                                     <option value="Entree">Entrees</option>
                                     <option value="Curry">Curries</option>
                                 </select>
                             </div>
                             <div className="d-flex">
-                                <button type="submit" className="btn btn-success btn-sm m-2">Update</button>
+                                <button type="submit" className="btn btn-primary btn-sm m-2">Update</button>
                                 <button type="button" className="btn btn-danger btn-sm m-2" onClick={handleDelete}>Delete</button>
                             </div>        
                         </div>

@@ -18,6 +18,8 @@ function EditMenu() {
 			<EditSection heading = {"Noodles & Fried Rice"} cat={"Fry"}/>
 			<EditSection heading = {"Curries"} cat={"Curry"}/>
 			<EditSection heading = {"Entrees"} cat={"Entree"}/>
+
+			<footer className="mt-5 pt-5"></footer>
 				
 		</div>
     )

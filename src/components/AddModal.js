@@ -92,7 +92,7 @@ function AddModal() {
                         <select className="form-control" id="inputGroupSelect01" onChange={handleOnChangeCat}>
                             <option defaultValue>Choose...</option>
                             <option value="App">Appetizer</option>
-                            <option value="Fry">Fry Dishes</option>
+                            <option value="Fry">Noodles & Fried Rice</option>
                             <option value="Entree">Entrees</option>
                             <option value="Curry">Curries</option>
                         </select>
