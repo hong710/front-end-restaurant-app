@@ -8,7 +8,7 @@ function EditSection({heading, cat}) {
     const [menu, setMenu]= useState([]);
 
 	useEffect(()=>{
-		fetch("http://localhost:9292/")
+		fetch("http://localhost:9292/edit")
 			.then((r)=>r.json())
 			.then((items => setMenu(items))
 	)},[]);

@@ -11,6 +11,8 @@ function Menu() {
 				<Section heading ={"Noodles & Fried Rice"} cat={"Fry"}/>
 				<Section heading ={"Curries"} cat={"Curry"}/>
 				<Section heading ={"Entrees"} cat={"Entree"}/>
+				
+				<footer className="mt-5 pt-5"></footer>
 		</div>
     )
 }
