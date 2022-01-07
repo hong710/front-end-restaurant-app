@@ -96,7 +96,7 @@ function AddModal() {
                             <option value="Entree">Entrees</option>
                             <option value="Curry">Curries</option>
                         </select>
-                        </div>
+                    </div>
                     
                     <button type="submit" className="btn btn-primary" >Submit</button>
                 </form>

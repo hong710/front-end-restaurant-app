@@ -6,18 +6,16 @@ const imgStyle = {
     height:"35%"
 }
 
-function EditItem({id, name, price,img, status}) {
+function EditItem({id, name, price,img,category, active}) {
 
     const [updateName, setUpdateName] = useState(name);
     const [updatePrice, setUpdatePrice] = useState(price);
     const [updateImg, setUpdateImg] = useState(img);
-
-
-
+    const [updateCat, setUpdateCat] = useState(category);
+    const [updateActive, setUpdateActive] = useState(active);
 
     function handleOnChangeName(e){
-        setUpdateName(e.target.value);
-        
+        setUpdateName(e.target.value);        
     }
 
     function handleOnChangePrice(e){
@@ -28,14 +26,27 @@ function EditItem({id, name, price,img, status}) {
         setUpdateImg(e.target.value);
     }
 
+    function handleOnChangeCat(e){
+        setUpdateCat(e.target.value);
+    }
+
+    function handleOnCheckStatus(e){
+        if (e.target.checked) {
+            setUpdateActive(false);
+        }else
+            setUpdateActive(true);
+        
+    }
+
     function handleSubmit(e){
         e.preventDefault();
         const updateItem = {
             name: updateName,
             price: updatePrice,
-            image: updateImg
+            image: updateImg,
+            category: updateCat,
+            active:updateActive
         }
-
         fetch(`http://localhost:9292/foods/${id}`, {
             method: "PATCH",
             headers: {
@@ -49,6 +60,18 @@ function EditItem({id, name, price,img, status}) {
         console.log(updateItem);
     }
 
+    function handleDelete(e){
+        e.preventDefault();
+        fetch(`http://localhost:9292/delete/${id}`, {
+        method: "DELETE",
+        })
+        .then((r) => r.json())
+        .then((deletedItem) => (deletedItem));
+        document.location.reload();
+    }
+
+    console.log(updateActive)
+    
     return (
         <div className="col-4 mb-3">
             <div className="card">
@@ -60,14 +83,23 @@ function EditItem({id, name, price,img, status}) {
                             <h6 className="card-text m-2"><input className="" placeholder={"$ "+price} onChange={handleOnChangePrice} /></h6>
                             <h6 className="card-text m-2"><input className="" placeholder={img} onChange={handleOnChangeImg} /></h6>
                             <div className="form-check mx-2">
-                                <input className="form-check-input" type="checkbox"  value="" id="flexCheckChecked"/>
+                                <input className="form-check-input" type="checkbox"  value={updateActive} id="flexCheckChecked" onChange={handleOnCheckStatus} />
                                 <label className="form-check-label" htmlFor="flexCheckChecked" >
                                     Deactivate
                                 </label>
                             </div>
+                            <div className="m-2">
+                                <select className="" id="inputGroupSelect01" onChange={handleOnChangeCat}>
+                                    <option value={category}>Choose.....</option>
+                                    <option value="App">Appetizer</option>
+                                    <option value="Fry">Fry Dishes</option>
+                                    <option value="Entree">Entrees</option>
+                                    <option value="Curry">Curries</option>
+                                </select>
+                            </div>
                             <div className="d-flex">
                                 <button type="submit" className="btn btn-success btn-sm m-2">Update</button>
-                                <button type="button" className="btn btn-danger btn-sm m-2">Delete</button>
+                                <button type="button" className="btn btn-danger btn-sm m-2" onClick={handleDelete}>Delete</button>
                             </div>        
                         </div>
                     </div>
